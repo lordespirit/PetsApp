@@ -5,6 +5,7 @@ import main.Aves;
 import main.Canidos;
 import main.Felinos;
 import main.ListaMascotas;
+import main.Mascota;
 import main.Person;
 import main.Roedores;
 
@@ -89,17 +90,23 @@ public class testMascotas {
 		Canidos can2 = new Canidos("Rex", 20, 1f , 1.5f);
 		Person per2 = new Person("Fredy Campino;00346617845;fredy@cam.com;Calle Marina");
 		list.add(can2);
-		can1.setPropietario(per2);
+		can2.setPropietario(per2);
 		
 		Aves ave1 = new Aves("Piolin", 0.1f, 0.1f , 0.1f);
 		Person per3 = new Person("Jose Rodriguez;00345854211;jose@rodr.es;Callejon Verde 12");
 		list.add(ave1);
-		can1.setPropietario(per3);
+		ave1.setPropietario(per3);
 		
 		Roedores roedor1 = new Roedores("Mordisquitos", 0.3f, 0.2f , 0.25f);
 		list.add(roedor1);
-		can1.setPropietario(per1);
+		roedor1.setPropietario(per1);
 		
+		Mascota[] busqueda1 = list.findByOwnerEmail("jose@");
+		Mascota[] busqueda = list.findByOwnerName("Edu");
+		
+		Assert.assertEquals(1, busqueda1.length);
+		Assert.assertEquals(2, busqueda.length);
+
 		for(int i=0;i< list.size();i++){
 			if(list.get(i).getClass().isAssignableFrom(Canidos.class)){
 				Canidos canido = (Canidos) list.get(i);
@@ -108,6 +115,7 @@ public class testMascotas {
 						" | Calidad de Colmillos: " +canido.getCalidadColmillo() +
 						" | Peso Racion Comida: " + canido.getPesoRacion() +
 						" | Dueño : " + canido.getPropietario().getFullName());
+				
 			}else if(list.get(i).getClass().isAssignableFrom(Felinos.class)){
 				Felinos felino = (Felinos) list.get(i);
 				System.out.println("Felino: " +  felino.getNombre() +
@@ -115,6 +123,7 @@ public class testMascotas {
 						" | Calidad de Garras: " + felino.getCalidadGarras() +
 						" | Peso Racion Comida: " + felino.getPesoRacion() +
 						" | Dueño : " + felino.getPropietario().getFullName());
+				
 			}else if(list.get(i).getClass().isAssignableFrom(Aves.class)){
 				Aves ave = (Aves) list.get(i);
 				System.out.println("Ave: " +  ave.getNombre() +
@@ -123,6 +132,7 @@ public class testMascotas {
 						" | Peso Racion Comida: " + ave.getPesoRacion()  +
 						" | Dueño : " + ave.getPropietario().getFullName());
 			}else if(list.get(i).getClass().isAssignableFrom(Roedores.class)){
+				
 				Roedores roedor = (Roedores) list.get(i);
 				System.out.println("Roedor: " +  roedor.getNombre() +
 						" | Estado Nutrición: " + roedor.getEstadoNutricion() +

@@ -60,9 +60,9 @@ public class ListaMascotas {
 	public Mascota[] findByOwnerName(String name){
 		Mascota findNameArrayMascotas[];  
 		int counter = 0;
-		for(Mascota mascota: arrayMascotas){
-			if(mascota.getPropietario().getFullName().startsWith(name));
-				counter++; 
+		for(int i = 0; i<arrayMascotas.length;i++){
+			if(arrayMascotas[i].getPropietario().getFullName().startsWith(name))
+				counter++;
 		}
 		findNameArrayMascotas = new Mascota[counter];  
 		for(int i=0,k=0; i<findNameArrayMascotas.length; i++){
@@ -75,9 +75,9 @@ public class ListaMascotas {
 	public Mascota[] findByOwnerEmail(String email){
 		Mascota findEmailArrayMascotas[];  
 		int counter = 0;
-		for(Mascota mascota: arrayMascotas){
-			if(mascota.getPropietario().getMail().startsWith(email));
-				counter++; 
+		for(int i = 0; i<arrayMascotas.length;i++){
+			if(arrayMascotas[i].getPropietario().getMail().startsWith(email))
+				counter++;
 		}
 		findEmailArrayMascotas = new Mascota[counter];  
 		for(int i=0,k=0; i<findEmailArrayMascotas.length; i++){
