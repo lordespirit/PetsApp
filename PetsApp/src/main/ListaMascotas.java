@@ -7,6 +7,40 @@ public class ListaMascotas {
 	public ListaMascotas(){
 		arrayMascotas = new Mascota[0];
 	}
+	
+	public ListaMascotas(String[] vetContacts){
+		iniContact(vetContacts); 
+	}
+	
+	private void iniContact(String[] vetContacts) {
+		arrayMascotas =  new Mascota[vetContacts.length];
+		  
+		/*  for(int i=0; i<vetContacts.length; i++){
+			  
+			  // FALTA CREAR METODO PARA CONVERTIR EN OBJETO (String, float, float, float)
+		
+			  String mascotaActual = vetContacts[i];
+			  
+			  if(mascotaActual.getClass().isAssignableFrom(Roedores.class)){
+				  Roedores newRoedor = new Roedores(mascotaActual);
+				  arrayMascotas[i] = newRoedor; 
+				  
+			  }else if(mascotaActual.getClass().isAssignableFrom(Aves.class)){
+				  Aves newAve = new Aves(mascotaActual);
+				  arrayMascotas[i] = newAve; 
+				  
+			  }else if(mascotaActual.getClass().isAssignableFrom(Canidos.class)){
+				  Canidos newCan = new Canidos(mascotaActual);
+				  arrayMascotas[i] = newCan; 
+				  
+			  }else{
+				  Felinos newFelino = new Felinos(mascotaActual);
+				  arrayMascotas[i] = newFelino; 
+				  
+			  }
+			  
+		  }*/
+	}
 
 	public Mascota get(int index){
 		return arrayMascotas[index];
